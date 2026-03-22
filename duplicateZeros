@@ -1,0 +1,33 @@
+function duplicateZeros(inventory) {
+  const n = inventory.length;
+  let possibleDups = 0;
+  let last = n - 1;
+
+  // Count how many zeros can be duplicated within bounds
+  for (let left = 0; left <= last - possibleDups; left++) {
+    if (inventory[left] === 0) {
+      // Edge case: zero at boundary can only be copied once
+      if (left === last - possibleDups) {
+        inventory[last] = 0;
+        last--;
+        break;
+      }
+      possibleDups++;
+    }
+  }
+
+  // Start from the end and copy backward
+  const lastIndexToCopy = last - possibleDups;
+
+  for (let i = lastIndexToCopy; i >= 0; i--) {
+    if (inventory[i] === 0) {
+      inventory[i + possibleDups] = 0;
+      possibleDups--;
+      inventory[i + possibleDups] = 0;
+    } else {
+      inventory[i + possibleDups] = inventory[i];
+    }
+  }
+}
+
+module.exports = duplicateZeros;

@@ -1,0 +1,14 @@
+{
+  "name": "duplicate-zeros-interview",
+  "version": "1.0.0",
+  "description": "Coding interview solution for duplicating zeros in place",
+  "main": "duplicateZeros.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Aden Osman",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^30.0.0"
+  }
+}
